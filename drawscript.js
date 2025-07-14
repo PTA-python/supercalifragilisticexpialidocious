@@ -23,9 +23,7 @@ const setCanvasBackground = () => {
 }
 
 window.addEventListener("load", () => {
-    // setting canvas width/height.. offsetwidth/height returns viewable width/height of an element
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    // Use the width and height set in HTML, do not override with offsetWidth/offsetHeight
     setCanvasBackground();
 });
 
