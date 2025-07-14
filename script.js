@@ -44,3 +44,26 @@ searchForm.addEventListener("click", () => {
 
 // Expand sidebar by default on large screens
 if (window.innerWidth > 768) sidebar.classList.remove("collapsed");
+
+// Handle content switching when clicking on menu items
+const contentSections = document.querySelectorAll(".main-content");
+
+menuLinks.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    // Remove active class from all menu links
+    menuLinks.forEach(l => l.classList.remove("active"));
+    link.classList.add("active");
+
+    // Get target ID from data-target attribute
+    const targetId = link.getAttribute("data-target");
+
+    // Hide all content sections
+    contentSections.forEach(section => section.classList.add("hidden"));
+
+    // Show the selected section
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) targetSection.classList.remove("hidden");
+  });
+});
